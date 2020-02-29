@@ -1,6 +1,6 @@
 # Tarea: Tutorías IES Al-Ándalus
 ## Profesor: Andrés Rubio del Río
-## Alumno:
+## Alumno: Jesús Garcimartín Berbel
 
 Desde el IES Al-Ándalus ya nos han comentado que les gustaría que los datos fuesen persistentes en ficheros.
 
