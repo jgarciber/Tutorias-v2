@@ -13,12 +13,6 @@ import org.iesalandalus.programacion.tutorias.mvc.modelo.negocio.IFuenteDatos;
 import org.iesalandalus.programacion.tutorias.mvc.modelo.negocio.IProfesores;
 import org.iesalandalus.programacion.tutorias.mvc.modelo.negocio.ISesiones;
 import org.iesalandalus.programacion.tutorias.mvc.modelo.negocio.ITutorias;
-import org.iesalandalus.programacion.tutorias.mvc.modelo.negocio.memoria.Alumnos;
-import org.iesalandalus.programacion.tutorias.mvc.modelo.negocio.memoria.Citas;
-import org.iesalandalus.programacion.tutorias.mvc.modelo.negocio.memoria.Profesores;
-import org.iesalandalus.programacion.tutorias.mvc.modelo.negocio.memoria.Sesiones;
-import org.iesalandalus.programacion.tutorias.mvc.modelo.negocio.memoria.Tutorias;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +31,8 @@ public class Modelo implements IModelo {
 		citas = fuenteDatos.crearCitas();
 		alumnos = fuenteDatos.crearAlumnos();
 
-		/* = new Profesores();
+		/* Código antiguo
+		profesores= new Profesores();
 		tutorias = new Tutorias();
 		sesiones = new Sesiones();
 		citas = new Citas();
@@ -138,9 +133,8 @@ public class Modelo implements IModelo {
 	
 	@Override
 	public void borrar(Alumno alumno) throws OperationNotSupportedException {
-		List<Cita> coincidencias= new ArrayList<>();
-		coincidencias=getCitas(alumno);
-		/*
+		List<Cita> coincidencias= getCitas(alumno); // EL ArrayList ya lo crea el método getCitas
+		/* Código antiguo
 		int opcion = 0;
 		if(!coincidencias.isEmpty()){
 			do {
@@ -167,8 +161,7 @@ public class Modelo implements IModelo {
 	
 	@Override
 	public void borrar(Profesor profesor) throws OperationNotSupportedException {		
-		List<Tutoria> coincidencias= new ArrayList<>();
-		coincidencias=getTutorias(profesor);
+		List<Tutoria> coincidencias= getTutorias(profesor); // EL ArrayList ya lo crea el método getTutorias
 		if(!coincidencias.isEmpty()){
 			System.out.println("Este profesor tiene asociadas "+coincidencias.size()+" tutorias");
 			for(Tutoria tutoria:coincidencias) {		
@@ -180,9 +173,7 @@ public class Modelo implements IModelo {
 	
 	@Override
 	public void borrar(Tutoria tutoria) throws OperationNotSupportedException {		
-		List<Sesion> coincidencias= new ArrayList<>();
-		coincidencias=getSesiones(tutoria);
-
+		List<Sesion> coincidencias= getSesiones(tutoria); // EL ArrayList ya lo crea el método getSesiones
 		if(!coincidencias.isEmpty()){
 			System.out.println("Esta tutoría tiene asociadas "+coincidencias.size()+" sesiones");
 			for(Sesion sesion:coincidencias) {
@@ -194,8 +185,7 @@ public class Modelo implements IModelo {
 	
 	@Override
 	public void borrar(Sesion sesion) throws OperationNotSupportedException {		
-		List<Cita> coincidencias= new ArrayList<>();
-		coincidencias=getCitas(sesion);
+		List<Cita> coincidencias= getCitas(sesion); // EL ArrayList ya lo crea el método getCitas
 		if(!coincidencias.isEmpty()){
 			System.out.println("Esta sesión tiene asociadas "+coincidencias.size()+" citas");
 			for(Cita cita:coincidencias) {
